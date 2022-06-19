@@ -47,3 +47,10 @@ def new_business(request):
     else:
         form = BusinessForm()
     return render(request, 'business.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    profile = Profile.objects.get(user=request.user)
+    hoods = Hood.objects.filter(user=request.user).all()
+    business = Business.objects.filter(user=request.user).all()
+    return render(request, 'profiles/profile.html', {"profile": profile, "hoods": hoods, "business": business})
