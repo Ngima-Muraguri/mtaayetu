@@ -153,3 +153,20 @@ def delete_post(request, postId):
     Posts.objects.filter(pk=postId).delete()
     messages.error(request, 'Succesfully Deleted a Post')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required(login_url='/accounts/login/')
+def create_hood(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = CreateHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.user = current_user
+            hood.save()
+            messages.success(
+                request, 'You Have succesfully created a hood.Now proceed and join a hood')
+        return redirect('home')
+    else:
+        form = CreateHoodForm()
+    return render(request, 'hoods/create_hood.html', {"form": form})
