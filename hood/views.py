@@ -188,3 +188,16 @@ def update_hood(request, id):
     else:
         form = CreateHoodForm(instance=hood)
     return render(request, 'hoods/create_hood.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def delete_hood(request, id):
+
+    Hood.objects.filter(user=request.user, pk=id).delete()
+    messages.error(request, 'Succesfully deleted your hood')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def occupants(request, id):
+    occupants = Join.objects.filter(id=hood_id).count()
+
+    return redirect('home')
