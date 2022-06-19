@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'hood',
     'bootstrap4',
+    'rest_framework.authtoken',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
