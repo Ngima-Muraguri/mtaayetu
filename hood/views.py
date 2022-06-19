@@ -170,3 +170,21 @@ def create_hood(request):
     else:
         form = CreateHoodForm()
     return render(request, 'hoods/create_hood.html', {"form": form})
+
+
+@login_required(login_url='/accounts/login/')
+def update_hood(request, id):
+    current_user = request.user
+    hood = get_object_or_404(Hood, pk=id)
+    if request.method == 'POST':
+        form = CreateHoodForm(request.POST, request.FILES, instance=hood)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.user = current_user
+            hood.save()
+            messages.success(
+                request, 'You Have succesfully Edited Hood Details.')
+        return redirect('home')
+    else:
+        form = CreateHoodForm(instance=hood)
+    return render(request, 'hoods/create_hood.html', {"form": form})
