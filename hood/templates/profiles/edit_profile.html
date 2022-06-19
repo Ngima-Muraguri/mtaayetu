@@ -3,17 +3,15 @@
 {{ block.super}}
 {% load bootstrap4 %}
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-  <title>Add Hood</title>
+  <title>New Profile</title>
   {{form.media}}
 
-
-
 <div class="card mx-auto" style="max-width:50rem; margin-top:50px;">
-  <form  action="{%url 'update_hood'%}" method="post" enctype="multipart/form-data">
+  <form  action="{%url 'edit_profile'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="post">
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
   </form>
 </div>
    {% block scripts %}
