@@ -84,15 +84,15 @@ WSGI_APPLICATION = 'neighbourhood.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nwatch',
-        'USER': 'postgres',
-    'PASSWORD':'6775',
+        'NAME': 'kwetu',
+        'USER': 'moringa',
+        'PASSWORD':'access',
     }
 }
 cloudinary.config( 
-  cloud_name = "dgkojinst", 
-  api_key = "938237336993178", 
-  api_secret = "PpuLrBceEgRwpOX1yU1Q2nOJIlE" 
+  cloud_name = "ngima", 
+  api_key = "982418546954976", 
+  api_secret = "4J3eBMlMoytA4hpz2TMfgxPm-lQ" 
 )
 
 
