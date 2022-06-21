@@ -1,4 +1,4 @@
-# AWARDS
+# MTAAYETU
 ## By Milcah Muraguri
 
 ### Table of contents
@@ -9,15 +9,15 @@
 5. Licence
 
 ### Description
-This is a django project that works like awwards<br>
-one can upload their projects,rate projects and view projects by others<br>
+This is a django project that brings together a neighbourhood<br>
+one can create a neighbourhood or join an existing one to connect with people in the area<br>
 
 
 ### BDD
-A user should be able to view projects posted by people<br>
+A user can create a new hood<br>
 one can create an account<br>
-A user can search the category of projects<br>
-one can upload their own projects
+A user can search for their neighbourhood<br>
+a user can join an existing neighbourhood
 
 ### Pre-requisites
 python3 <br>
@@ -30,7 +30,7 @@ clone the repository <br>
 create a virtual environment and activate it<br>
 navigate to project <br>
 pip3 install -r requirements.txt <br>
-psql CREATE DATABASE awards <br>
+psql CREATE DATABASE kwetu <br>
 python3.8 manage.py runserver <br>
 python manage.py migrate
 
